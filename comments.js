@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import comments from './reducer';
+import { combineReducers } from "redux";
+import comments from "./reducer";
 
 const app = combineReducers({
-    comments
+	comments
 });

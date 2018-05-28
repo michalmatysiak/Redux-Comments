@@ -16,16 +16,16 @@ function comments(state = [], action) {
 				id: action.id,
 				text: action.text,
 				votes: 0
-			}
-			, ...state.comments];
+			},
+			...state];
 		case REMOVE_COMMENT : 
-			return 	comments: state.comments.filter(comment => comment.id !== action.id)
+			return 	comments: state.filter(comment => comment.id !== action.id);
 		case EDIT_COMMENT: 
-			return comments: state.comments.map(comment => (comment.id === action.id ? {..comment text: action.text} : comment))
+			return comments: state.map(comment => (comment.id === action.id ? {..comment text: action.text} : comment));
 		case THUMB_UP_COMMENT: 
-			return comments: state.comments.map(comment => (comment.id === action.id ? {...comment, votes: comment.votes +1} : comment))
+			return comments: state.map(comment => (comment.id === action.id ? {...comment, votes: comment.votes +1} : comment));
 		case THUMB_DOWN_COMMENT: 
-			return comments: state.comments.map(comment => (comment.id === action.id ? {...comment, votes: comment.votes -1} : comment))
+			return comments: state.map(comment => (comment.id === action.id ? {...comment, votes: comment.votes -1} : comment));
 		default: 
 			return state;
 	}
